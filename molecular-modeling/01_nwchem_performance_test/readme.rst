@@ -8,6 +8,8 @@ sudo apt install nwchem
 
 check with
 ~~~~~~~~~~
+lsb_release -a
+
 which nwchem
 /usr/bin/nwchem
 
@@ -15,11 +17,17 @@ ldd /usr/bin/nwchem
 
 dpkg -S nwchem
 
+man nwchem
 
-https://nwchemgit.github.io/EPR-pNMR.html
+find nwchem version
+~~~~~~~~~~~~~~~~~~~
+apt show nwchem
+
 
 running NWChem interactively
 ----------------------------
+example from https://nwchemgit.github.io/EPR-pNMR.html
+
 mpirun -np 6 nwchem ch3_zora_b3lyp_prop.nw
 
 
