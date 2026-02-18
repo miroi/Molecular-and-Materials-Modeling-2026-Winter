@@ -5,15 +5,25 @@ MOPAC for WSL2
 installation
 ------------
 
-for donwload, http://openmopac.net/Download_MOPAC_Executable_Step2.html
+for donwload
+
+http://openmopac.net/Download_MOPAC_Executable_Step2.html
+
+https://openmopac.net/download/
 
 wget http://openmopac.net/mopac-23.1.2-linux.tar.gz
+
+wget https://github.com/openmopac/mopac/releases/download/v23.2.3/mopac-23.2.3-linux.run
+
+or
+wget https://github.com/openmopac/mopac/releases/download/v23.2.3/mopac-23.2.3-linux.tar.gz
 
 "mini DNA" perfomance test
 --------------------------
 
 Notebook:
----------
+~~~~~~~~~
+
 Nthr   Job time
 1      27.50s
 6      18.49s  
@@ -21,7 +31,7 @@ Nthr   Job time
 
 
 Desktop PC:
------------
+~~~~~~~~~~~
 12th Gen Intel(R) Core(TM) i7-12700K
 
 Nthr   Job time
