@@ -6,6 +6,7 @@ from ase.optimize import BFGS
 # Replace EMT with a higher-level calculator (e.g., GPAW, ORCA) for accuracy
 from ase.calculators.emt import EMT
 import numpy as np
+#from ase.units import Å
 
 def calculate_ethane_cc_bond():
     # 1. Setup Ethane (C2H6)
@@ -17,6 +18,15 @@ def calculate_ethane_cc_bond():
     dyn_e.run(fmax=0.01)
     e_ethane = c2h6.get_potential_energy()
     print(f"Ethane Energy: {e_ethane:.4f} eV")
+
+    #  Compute C-C bond length
+    # In ase.build.molecule('C2H6'), atoms 0 and 1 are the carbons
+    c1 = c2h6[0]
+    c2 = c2h6[1]
+    bond_length = c2h6.get_distance(0, 1)
+
+    print(f"Optimized C-C bond length in ethane: {bond_length:.4f} Å")
+
 
     # 2. Setup Methyl Radical (CH3)
     # The methyl radical is generally planar-like (D3h symmetry)
