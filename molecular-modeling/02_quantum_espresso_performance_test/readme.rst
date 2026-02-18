@@ -65,6 +65,7 @@ Nthr   WALL time
 
 12th Gen Intel(R) Core(TM) i5-12450H
 PWSCF v.7.5 (Ubuntu 24.04)
+
 Nthr   Wall 
 1      1m 9.57s
 2      39.55s
