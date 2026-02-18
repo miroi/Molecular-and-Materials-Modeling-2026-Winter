@@ -46,7 +46,7 @@ Nthr   Job time
 12      15.61s
 
 Nthr    Job tim
-4        
+4       97.62        
 10      12.23
 18      12.07
 
