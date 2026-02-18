@@ -16,7 +16,7 @@ vib = Vibrations(atoms)
 vib.run()
 vib_energies = vib.get_energies()
 
-# print the results
+# print the results - vibrational frequencies
 vib.summary()
 
 # 3. Thermochemistry Calculation
@@ -32,6 +32,6 @@ thermo = IdealGasThermo(
 # 4. Get H and S at 298.15K
 H = thermo.get_enthalpy(temperature=298.15)
 S = thermo.get_entropy(temperature=298.15, pressure=101325.0)
-print(f"Enthalpy: {H} eV")
-print(f"Entropy: {S} eV/K")
+print(f"N2 molecule Enthalpy: {H} eV")
+print(f"N2 molecule Entropy: {S} eV/K")
 
