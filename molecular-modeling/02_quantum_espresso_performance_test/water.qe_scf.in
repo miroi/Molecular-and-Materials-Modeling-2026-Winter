@@ -18,7 +18,9 @@
     ntyp            = 2
     occupations     = 'fixed'
     ecutwfc         = 30.0
-    ecutrho         = 180.0
+!   ecutwfc         = 50.0  ! for increase
+     ecutrho         = 180.0
+!   ecutrho         = 300.0  ! for increase
     input_dft       = 'vdW-DF'
 /
 

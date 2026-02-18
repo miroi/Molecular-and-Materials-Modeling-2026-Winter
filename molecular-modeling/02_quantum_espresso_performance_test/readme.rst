@@ -70,3 +70,9 @@ Nthr   Wall
 1      1m 9.57s
 2      39.55s
 6      3m34.84s      
+
+challenge
+~~~~~~~~~
+increase the cutoff quality
+ecutrho         = 240.0
+
