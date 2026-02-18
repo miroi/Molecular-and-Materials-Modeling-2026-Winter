@@ -99,7 +99,7 @@ Inspect all the obtained results similar to the previous analysis. Finally exami
 ---------------------------------------------------------------------------------------------
 TASK 7: Work function (ASE)
 
-The work function is defined as the minimum energy required to extract an electron from a solid to a point immediately outside its surface. It is not a bulk material property but rather a surface-specific characteristic that we will calculate for our graphene slab example. the work flow consists of first performing an SCF calculation, then using pp.x to extract the electrostatic potential (plot number 11), followed by planar and macroscopic averaging along the vacuum direction with average.x, from which the finnally the work function can be estimated. As usual, we will use ASE to automate the execution sequence.
+The work function is defined as the minimum energy required to extract an electron from a solid to a point immediately outside its surface. It is not a bulk material property but rather a surface-specific characteristic that we will calculate for our graphene slab example. the work flow consists of first performing an SCF calculation, then using pp.x to extract the electrostatic potential (plot number 11), followed by planar and macroscopic averaging along the vacuum direction with average.x, from which the finally the work function can be estimated. As usual, we will use ASE to automate the execution sequence.
 
 Step 8.1:
 python3 work_function.py > work_function.out
