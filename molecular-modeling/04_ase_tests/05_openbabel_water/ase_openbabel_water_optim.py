@@ -77,7 +77,7 @@ ase_mol = pybel_to_ase(mol)
 # This opens a separate GUI window (ase-gui)
 #view(ase_mol)
 
-mol.write("xyz", "water_opt.xyz", overwrite=True)
+mol.write("xyz", "water_optgem.xyz", overwrite=True)
 
 # 4. Print optimized geometry
 print_water_geometry(mol," Optimized geometry:")

@@ -1,10 +1,15 @@
 ASE driven OpenBabel 
 ====================
 
+ase driven OpenBabel optimization of water molecule
+
+install
+~~~~~~~
 pip install openbabel-wheel
 
 
-ase driven OpenBabel optimization of water molecule
-
+run
+---
+python ase_openbabel_water_optim.py
 
 
