@@ -23,21 +23,21 @@ h2o.center()               # Center the molecule in the box
 # 2. Configure the Quantum ESPRESSO Calculator
 # Update pseudo_dir to your actual pseudopotential folder
 pseudopotentials = {
-    'O': 'O.pbe-n-kjpaw_psl.1.0.0.UPF',
-    'H': 'H.pbe-kjpaw_psl.1.0.0.UPF'
+    'O': 'O.pbe-kjpaw.UPF',
+    'H': 'H.pbe-kjpaw.UPF'
 }
 
 input_data = {
     'control': {
-        'calculation': 'relax',  # 'relax' for geometry optimization
-        'prefix': 'h2o_opt',
+        'calculation': 'scf', 
+        'prefix': 'h2o_scf',
         'pseudo_dir': '/usr/share/espresso/pseudo/',  # CHANGE THIS
         'outdir': './outdir',
     },
     'system': {
         'ecutwfc': 40.0,    # Plane wave cutoff (Ry)
         'ecutrho': 320.0,   # Charge density cutoff (Ry)
-        'ibrav': 1,         # Cubic cell
+        'ibrav': 0,         # 
         'nosym': True,      # No symmetry for molecules
         'noinv': True,
     },
