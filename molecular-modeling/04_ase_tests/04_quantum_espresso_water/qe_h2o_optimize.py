@@ -10,9 +10,9 @@ from ase.units import Ry, Bohr
 
 
 # Path to the directory containing your .UPF files
-os.environ['ESPRESSO_PSEUDO'] = '/usr/share/espresso/pseudo/'
+#os.environ['ESPRESSO_PSEUDO'] = '/usr/share/espresso/pseudo/'
 # Path to the directory containing the pw.x executable
-os.environ['ASE_ESPRESSO_COMMAND'] = 'mpirun -np 4 /opt/espresso/7.5/pw.x -in PREFIX.pwi > PREFIX.pwo'
+#os.environ['ASE_ESPRESSO_COMMAND'] = 'mpirun -np 4 /opt/espresso/7.5/pw.x -in PREFIX.pwi > PREFIX.pwo'
 
 # 1. Create the initial water molecule structure
 # H-O-H structure, approx bond length 0.96 A, angle 104.5 deg
@@ -30,9 +30,12 @@ pseudopotentials = {
 input_data = {
     'control': {
         'calculation': 'scf', 
-        'prefix': 'h2o_scf',
+        'prefix': 'h2o',
         'pseudo_dir': '/usr/share/espresso/pseudo/',  # CHANGE THIS
         'outdir': './outdir',
+        'verbosity': 'low',
+        'tstress': True,
+        'tprnfor': True
     },
     'system': {
         'ecutwfc': 40.0,    # Plane wave cutoff (Ry)
@@ -49,7 +52,9 @@ input_data = {
     }
 }
 
-profile = EspressoProfile(command='/opt/espresso/7.5/pw.x',pseudo_dir='/usr/share/espresso/pseudo/')
+#command='mpirun -np 4 /opt/espresso/7.5/pw.x'
+command='mpirun -np 2 /opt/espresso/7.5/pw.x'
+profile = EspressoProfile(command,pseudo_dir='/usr/share/espresso/pseudo/')
 
 calc = Espresso(profile=profile, pseudopotentials=pseudopotentials,
                 input_data=input_data,
