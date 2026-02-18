@@ -4,9 +4,15 @@
 import os
 from ase import Atoms
 from ase.build import molecule
-from ase.calculators.espresso import Espresso
+from ase.calculators.espresso import Espresso, EspressoProfile
 from ase.optimize import BFGS
 from ase.units import Ry, Bohr
+
+
+# Path to the directory containing your .UPF files
+os.environ['ESPRESSO_PSEUDO'] = '/usr/share/espresso/pseudo/'
+# Path to the directory containing the pw.x executable
+os.environ['ASE_ESPRESSO_COMMAND'] = 'mpirun -np 4 /opt/espresso/7.5/pw.x -in PREFIX.pwi > PREFIX.pwo'
 
 # 1. Create the initial water molecule structure
 # H-O-H structure, approx bond length 0.96 A, angle 104.5 deg
@@ -43,12 +49,13 @@ input_data = {
     }
 }
 
-calc = Espresso(pseudopotentials=pseudopotentials,
-                input_data=input_data,
-                kpts=(1, 1, 1), # Gamma-point only for molecules
-                command='mpirun -np 4 pw.x < espresso.pwi > espresso.pwo')
+profile = EspressoProfile(command='/opt/espresso/7.5/pw.x',pseudo_dir='/usr/share/espresso/pseudo/')
 
-h2o.set_calculator(calc)
+calc = Espresso(profile=profile, pseudopotentials=pseudopotentials,
+                input_data=input_data,
+                kpts=(1, 1, 1) ) # Gamma-point only for molecules )
+
+h2o.calc = calc
 
 # 3. Run the Geometry Optimization
 # fmax: Max force threshold for convergence (eV/Angstrom)
