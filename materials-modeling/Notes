@@ -86,7 +86,7 @@ Details about input parameters can be found here:
 https://www.quantum-espresso.org/Doc/INPUT_PW.html
 https://www.quantum-espresso.org/Doc/INPUT_PP.html
 https://www.quantum-espresso.org/Doc/INPUT_DOS.html
-https://www.quantum-espresso.org/Doc/INPUT_PROJWFC.html
+https://www.quantum-espresso.org/Doc/INPUT_PROJWFC.html (orbital ordering)
 https://www.quantum-espresso.org/Doc/INPUT_BANDS.html
 
 For running jobs, the pesudopotential file must be in the job directory (or you have to specify the path).

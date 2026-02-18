@@ -76,7 +76,7 @@ Run the calculation
 python3 electronic_properties_al.py > electronic_properties_al.out
 (update the Quantum ESPRESSO executable path to your local pw.x location.)
 
-Visualize the DOS and bandstructure plots and compare with Si.
+Visualize the DOS plots and compare with Si.
 
 
 
