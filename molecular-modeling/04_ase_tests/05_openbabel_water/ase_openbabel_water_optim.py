@@ -30,12 +30,23 @@ if success:
 
 # Redirect Open Babel internal logs to a file
 #ob.obErrorLog.SetOutputStream("optimization_log.txt")
-ob.obErrorLog.SetOutputLevel(5) # Adjust level as needed
+#ob.obErrorLog.SetOutputLevel(5) # Adjust level as needed
+
+ob_log = pybel.ob.obErrorLog 
+
+# 2. Set level to capture everything (4 = Debug, 2 = Info)
+ob_log.SetOutputLevel(2) 
 
 mol.localopt(forcefield=thisff, steps=500)
 
-# Stop redirection if necessary
-ob.obErrorLog.StopLogging()
+all_messages = ob_log.GetMessagesOfLevel(0)
+
+for msg in all_messages:
+    print(f"Log: {msg}")
+
+# 5. Clear the log so it doesn't grow indefinitely
+ob_log.ClearLog()
+
 
 success = ff.Setup(mol.OBMol)
 if success:
