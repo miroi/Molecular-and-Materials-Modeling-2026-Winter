@@ -58,7 +58,7 @@ First, copy your relaxed atomic structure into the provided ASE script (electron
 Step 4.1: 
 python3 electronic_properties_si.py > electronic_properties_si.out
 
-Inspect electronic_a_si.out to verify all steps have completed successfully. Also inspect the individual pp, dos and projwfc input and output files. 
+Inspect electronic_properties_si.out to verify all steps have completed successfully. Also inspect the individual pp, dos and projwfc input and output files. 
 Open the generated charge_density.cube file in VESTA to visualize the 3D electron density. For the total density of states (TDOS), plot the first two columns (E (eV) and dos(E)) from total_dos.dat using any plotting tool (e.g., Grace, matplotlib), then shift the x-axis by subtracting the Fermi energy (found in the QE output, grep Fermi *.pwo) to align the Fermi energy to 0 eV (in Grace: Data > Transformation > Evaluate Expression: x=x-<Fermi Energy>). Repeat this process for the projected DOS (PDOS) by plotting the first two columns from the first Si atom's s and p orbital files, again offsetting by Fermi energy. Finally, examine lowdin.out and check the computed Löwdin partial charges for each Si atom. 
 Compare your computed DOS with silicon's experimental band gap- does your match? Why? Why not?
 
@@ -77,14 +77,8 @@ python3 electronic_properties_al.py > electronic_properties_al.out
 (update the Quantum ESPRESSO executable path to your local pw.x location.)
 
 Visualize the DOS plots and compare with Si.
-
-
-
-
-
-
 ---------------------------------------------------------------------------------------------
-TASK 7: Surfaces and 2D materials (ASE)
+TASK 6: Surfaces and 2D materials (ASE)
 
 This task focuses on analyzing the electronic properties of surfaces and 2D materials, using graphene as an example. Begin by inspecting the graphite structure, select two atoms with identical z-coordinates, and then manually increase the c lattice parameter to a large arbitrary value (e.g., 15 Å) while adjusting the z-coordinates of the selected two atoms to half that value (e.g., 7.5 Å) to create a well-separated, single-layer graphene structure. After visualizing this new structure, copy the TASK 2 convergence test script and edit it: (1) update it with the graphene structure and carbon pseudopotential (2) 2D material specific changes: 'assume_isolated': '2D' (3) change the k-points grid from cubic to a 2D grid divisible by three (e.g., 3k, 3k, 1) to ensure proper sampling of the Dirac point at (1/3, 1/3, 0). For a 2D material, electronic dispersion is flat in the z-direction, so only one k-point is needed to sample it accurately. 
 
@@ -98,15 +92,18 @@ Then run the relaxation:
 python3 cell_relaxation_graphene.py > cell_relaxation_graphene.out
 
 Step 7.3 
-Copy the TASK 4: Electronic properties: A script, and update it with the relaxed graphene structure and all other relevant parameters. Then run the calculation:
-python3 electronic_properties_a_graphene.py > electronic_properties_a_graphene.out
+Copy the TASK 4: Electronic properties: Si  script, and update it with the relaxed graphene structure and all other relevant parameters. Then run the calculation:
+python3 electronic_properties_graphene.py > electronic_properties_graphene.out
 
-Step 7.4 
-Copy the TASK 5: Electronic properties: B script, and update it with the seekpath generated graphene structure, k points list and all other relevant parameters (k path is along Γ—M—K—Γ—A—L—H—A|L—M|H—K). Then run the calculation:
-python3 electronic_properties_b_graphene.py > electronic_properties_b_graphene.out
-
-Inspect all the obtained results similar to the previous analysis and observe the Dirac point. Finally examine the calculated projected DOS for a carbon atom's p orbitals. This file contains five columns where the first two were already covered in TASK 4; columns 3-5 describes the orbital projections onto pz, px, and py oribtals (in that specific order. For the exact orbital orderings for different cases (e.g. spin-orbit, spin polarized etc.), consult the PROJWFC manual. Plot the contributions from pz, px, and py. The expected nature for graphene is that near the Fermi level, the electronic states are formed primarily by the out-of-plane pz orbitals, which create the characteristic Dirac cones. Determine if your results show this same behavior. Now plot the same for Si p orbital, what differences do you see? Why?
+Inspect all the obtained results similar to the previous analysis. Finally examine the calculated projected DOS for a carbon atom's p orbitals. This file contains five columns where the first two were already covered in TASK 4; columns 3-5 describes the orbital projections onto pz, px, and py orbitals (in that specific order. For the exact orbital orderings for different cases (e.g. spin-orbit, spin polarized etc.), consult the PROJWFC manual. Plot the contributions from pz, px, and py. The expected nature for graphene is that near the Fermi level, the electronic states are formed primarily by the out-of-plane pz orbitals, which create the characteristic Dirac cones. Determine if your results show this same behavior. Now plot the same for Si p orbital, what differences do you see? Why?
 ---------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
 TASK 8: Work function (ASE)
 
 The work function is defined as the minimum energy required to extract an electron from a solid to a point immediately outside its surface. It is not a bulk material property but rather a surface-specific characteristic that we will calculate for our graphene slab example. the work flow consists of first performing an SCF calculation, then using pp.x to extract the electrostatic potential (plot number 11), followed by planar and macroscopic averaging along the vacuum direction with average.x, from which the finnally the work function can be estimated. As usual, we will use ASE to automate the execution sequence.
