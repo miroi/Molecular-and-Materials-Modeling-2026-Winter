@@ -73,6 +73,5 @@ Nthr   Wall
 
 challenge
 ~~~~~~~~~
-increase the cutoff quality
-ecutrho         = 240.0
+increase the cutoffs and run performance tests 
 
