@@ -42,7 +42,8 @@ else
      NTHREADS=2
 fi
 
-export QE_EXECUTABLE=/usr/bin/pw.x
+#export QE_EXECUTABLE=/usr/bin/pw.x
+export QE_EXECUTABLE=//opt/espresso/7.5/pw.x
 echo -e "\n  QE_EXECUTABLE=$QE_EXECUTABLE ; linked libraries: "
 ldd $QE_EXECUTABLE
 
