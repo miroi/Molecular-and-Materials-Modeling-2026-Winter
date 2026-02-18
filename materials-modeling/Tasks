@@ -44,7 +44,7 @@ Step 3.1: Direct QE
 Step 3.2: ASE
 ASE: python3 cell_relaxation_si.py > cell_relaxation_si.out (Replace the QE executable path with your local pw.x location in the script)
 
-When using QE directly, the calculation type must be set to 'vc-relax', requiring both the &IONS and &CELL NAMELISTs in the input file. QE's relaxation convergence is controlled by thresholds like etot_conv_thr and forc_conv_thr in the &CONTROL NAMELIST, which default to specific values if not specified (in this example we did not, so check the pw.x manual what those values are and if they are same or different for both jobs). In direct QE relxations, the final co-ordinates are after "Begin final coordinates" line in the output. 
+When using QE directly, the calculation type must be set to 'vc-relax', requiring both the &IONS and &CELL NAMELISTs in the input file. QE's relaxation convergence is controlled by thresholds like etot_conv_thr and forc_conv_thr in the &CONTROL NAMELIST, which default to specific values if not specified (in this example we did not, so check the pw.x manual what those values are and if they are same or different for both jobs). In direct QE relaxations, the final co-ordinates are after "Begin final coordinates" line in the output. 
 ASE, on the other hand, employs QE as a calculator to perform a series of SCF calculations, using the calculated energies and forces to optimize the structure through its own BFGS implementation. While both methods utilize the BFGS algorithm, slight differences may appear in the final structures due to variations in their implementations (such as minimizing max force vs norm) and different threshold values. After completing both relaxations, carefully compare the resulting forces, pressure, energy, lattice parameters, and atomic coordinates in both jobs. For a well-relaxed structure, the stress should remain within ±50 kbar and forces should be negligible, how are your results?
 
 Note: When performing a series of calculations, ASE automatically overwrites the Quantum ESPRESSO output (.pwo) and input (.pwi) files after each step.
@@ -56,7 +56,7 @@ In this task, we'll calculate a few key electronic properties — (1) 3D charge 
 First, copy your relaxed atomic structure into the provided ASE script (electronic_a_si.py) and update the Quantum ESPRESSO executable path to your local pw.x location.
 
 Step 4.1: 
-python3 electronic_properties_a_si.py > electronic_properties_a_si.out
+python3 electronic_properties_si.py > electronic_properties_si.out
 
 Inspect electronic_a_si.out to verify all steps have completed successfully. Also inspect the individual pp, dos and projwfc input and output files. 
 Open the generated charge_density.cube file in VESTA to visualize the 3D electron density. For the total density of states (TDOS), plot the first two columns (E (eV) and dos(E)) from total_dos.dat using any plotting tool (e.g., Grace, matplotlib), then shift the x-axis by subtracting the Fermi energy (found in the QE output, grep Fermi *.pwo) to align the Fermi energy to 0 eV (in Grace: Data > Transformation > Evaluate Expression: x=x-<Fermi Energy>). Repeat this process for the projected DOS (PDOS) by plotting the first two columns from the first Si atom's s and p orbital files, again offsetting by Fermi energy. Finally, examine lowdin.out and check the computed Löwdin partial charges for each Si atom. 
@@ -66,6 +66,13 @@ Note: To verify the quality of the projections, two key checks are necessary: (1
 
 Note: SCF (Self-Consistent Field) calculations iteratively solve the Kohn-Sham equations to find the ground-state electron density and total energy by converging the charge density. NSCF (Non-Self-Consistent Field) calculations use the pre-converged charge density from SCF but compute eigenvalues on a denser k-point grid without re-converging the density. For DOS (Density of States), NSCF is essential because it provides higher-resolution sampling of the Brillouin zone, capturing fine electronic structure details that the coarser SCF grid would miss, while avoiding the computational cost of fully re-converging at each k-point. This ensures accurate and smooth DOS plots without redundant SCF iterations.
 ---------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
 TASK 5: Electronic properties: B (Bands, ASE)
 
 In this task, we'll  automate band structure calculation using ASE. The workflow consists of a SCF calculation, followed by a NSCF (bands) calculation (set via calculation = 'bands' in &CONTROL, with matching outdir/ prefix to read the SCF charge density, similar to DOS calculation); then post-processing with bands.x and plotband.x. plotband.x is optional (since bands.x generated bands.dat.gnu can be plotted directly e.g., with Grace), but it automatically marks the high-symmetry points and Fermi level in the final image. While ASE automates the execution sequence, each post-processing tool requires specific inputs similar to DOS calculations.  
