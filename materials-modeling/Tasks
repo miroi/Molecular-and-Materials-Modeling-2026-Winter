@@ -97,19 +97,12 @@ python3 electronic_properties_graphene.py > electronic_properties_graphene.out
 
 Inspect all the obtained results similar to the previous analysis. Finally examine the calculated projected DOS for a carbon atom's p orbitals. This file contains five columns where the first two were already covered in TASK 4; columns 3-5 describes the orbital projections onto pz, px, and py orbitals (in that specific order. For the exact orbital orderings for different cases (e.g. spin-orbit, spin polarized etc.), consult the PROJWFC manual. Plot the contributions from pz, px, and py. The expected nature for graphene is that near the Fermi level, the electronic states are formed primarily by the out-of-plane pz orbitals, which create the characteristic Dirac cones. Determine if your results show this same behavior. Now plot the same for Si p orbital, what differences do you see? Why?
 ---------------------------------------------------------------------------------------------
-
-
-
-
-
-
-
-TASK 8: Work function (ASE)
+TASK 7: Work function (ASE)
 
 The work function is defined as the minimum energy required to extract an electron from a solid to a point immediately outside its surface. It is not a bulk material property but rather a surface-specific characteristic that we will calculate for our graphene slab example. the work flow consists of first performing an SCF calculation, then using pp.x to extract the electrostatic potential (plot number 11), followed by planar and macroscopic averaging along the vacuum direction with average.x, from which the finnally the work function can be estimated. As usual, we will use ASE to automate the execution sequence.
 
 Step 8.1:
-python3 potential.py > potential.out
+python3 work_function.py > work_function.out
 (update the Quantum ESPRESSO executable path to your local pw.x location.)
 
 Inspect the potential.out file, and the individual SCF, pp.x, and average.x input and output files to ensure proper execution. Then plot the potential profile from potential_results/avg.dat alongside the Fermi level obtained from the SCF calculation. The vacuum level is identified as the flat region of the electrostatic potential outside the slab surface, then compute the work function as Work Function = Vacuum Level - Fermi Level. Finally compare your obtained values with standard reported values of graphene.
@@ -117,15 +110,3 @@ Inspect the potential.out file, and the individual SCF, pp.x, and average.x inpu
 Note: 
 The 'assume_isolated': '2D' setting introduces artificial image charges that distort the electrostatic potential at the cell boundaries (notice the unphysical peaks at the start and end of your plot), though it is necessary to maintain accuracy of forces and energies, especially for asymmetric slabs requiring dipole correction. Now remove this flag, rerun the example, and inspect the resulting potential profile to observe a more physically meaningful potential profile.
 ---------------------------------------------------------------------------------------------
-TASK 9: Raman Spectroscopy (ASE)
-
-Raman spectroscopy measures the inelastic scattering of light by phonons to characterize vibrational modes in materials. This workflow calculates the Raman spectrum of bulk silicon using Density Functional Perturbation Theory (DFPT), beginning with an SCF ground state calculation, followed by a DFPT phonon calculation at the Gamma point to obtain vibrational frequencies and Raman intensities, and concluding with dynmat.x to process and output the Raman-active modes. As with the previous tasks, ASE automates the entire execution sequence.
-
-Step 9.1:
-python3 raman_si.py > raman_si.out
-(Update the Quantum ESPRESSO executable paths to your local pw.x and ph.x locations.)
-
-Inspect the raman_si.out file and examine the individual SCF, ph.x, and dynmat.x input and output files to verify proper execution. The dynmat.out output file will list the Raman and IR active modes. Compare these with experimentally reported values for bulk silicon.
-
-Note:
-This calculation needs LDA norm-conserving pseudopotentials (required for Raman property calculations). 
