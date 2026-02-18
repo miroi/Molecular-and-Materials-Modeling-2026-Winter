@@ -6,7 +6,22 @@ installation
 ------------
 Ubuntu 24.04:  sudo apt-get install quantum-espresso c2x quantum-espresso-data quantum-espresso-data-sssp
 
+broken package 24.04 !!!, see https://gitlab.com/QEF/q-e/-/issues/684 !
+
 Ubuntu 22.04:  sudo apt-get install quantum-espresso  quantum-espresso-data
+
+external package
+~~~~~~~~~~~~~~~~
+deb-package:  https://github.com/pranabdas/espresso/releases
+sudo apt install ./quantum-espresso_7.5-1_amd64.deb
+
+export PATH=/opt/espresso/7.5:$PATH
+
+check ldd /opt/espresso/7.5/pw.x
+
+which pw.x
+/opt/espresso/7.5/pw.x
+
 
 check installed QE
 ~~~~~~~~~~~~~~~~~~
