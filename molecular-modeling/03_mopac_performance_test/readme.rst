@@ -18,6 +18,11 @@ wget https://github.com/openmopac/mopac/releases/download/v23.2.3/mopac-23.2.3-l
 or
 wget https://github.com/openmopac/mopac/releases/download/v23.2.3/mopac-23.2.3-linux.tar.gz
 
+
+tar xvzf mopac-23.2.3-linux.tar.gz
+milias@DESKTOP-7OTLCGO:~/work/software/mopac/mopac-23.2.3-linux/.ls
+CITATION.cff  LICENSE  bin/  examples/  include/  lib/
+
 "mini DNA" perfomance test
 --------------------------
 
@@ -39,5 +44,10 @@ Nthr   Job time
 6       10.82s  <-----
 10      15.09s
 12      15.61s
+
+Nthr    Job tim
+4        
+10      12.23
+18      12.07
 
 see also http://openmopac.net/Manual/Reducing_computation_time.html
