@@ -6,6 +6,7 @@ from openbabel import openbabel as ob
 from openbabel import pybel
 
 from ase import Atoms
+from ase.io import write
 from ase.visualize import view
 
 def pybel_to_ase(mol):
@@ -50,7 +51,7 @@ if success:
 
 ob_log = pybel.ob.obErrorLog 
 
-# 2. Set level to capture everything (4 = Debug, 2 = Info)
+# Set level to capture everything (4 = Debug, 2 = Info)
 ob_log.SetOutputLevel(2) 
 
 mol.localopt(forcefield=thisff, steps=500)
@@ -73,6 +74,7 @@ if success:
 
 # Convert
 ase_mol = pybel_to_ase(mol)
+write("water_optgem_ase.xyz",ase_mol)
 
 # This opens a separate GUI window (ase-gui)
 #view(ase_mol)
