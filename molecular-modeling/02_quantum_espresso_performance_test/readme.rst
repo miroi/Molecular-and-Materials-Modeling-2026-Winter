@@ -23,7 +23,7 @@ check ldd /opt/espresso/7.5/pw.x
 which pw.x
 /opt/espresso/7.5/pw.x
 
-provide pseudos: sudo apt-get install quantum-espresso-data
+provide also pseudos: sudo apt-get install quantum-espresso-data
 
 check installed QE
 ~~~~~~~~~~~~~~~~~~
