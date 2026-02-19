@@ -17,12 +17,13 @@ O     -0.459436    1.378927   -0.049210
 end
 
 basis
-  * library adzp
+  O library def2-TZVP
+  Xe library def2-TZVP
 end
 
-RELATIVISTIC
-  X2C
-END
+relativistic
+ ecp 
+end
 
 dft
   xc b3lyp
