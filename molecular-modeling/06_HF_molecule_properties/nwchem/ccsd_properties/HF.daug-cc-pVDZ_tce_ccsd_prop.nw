@@ -1,0 +1,33 @@
+echo
+
+start molecule
+
+title "HFCCSD/daug-cc-pVDZ"
+charge 0
+
+print low
+
+geometry units angstroms print xyz 
+SYMMETRY c1
+F      0.0  0.0   0.0                       
+H      0.0  0.0   0.921
+end
+
+basis
+  * library d-aug-cc-pvdz
+end
+
+scf
+  print low
+end
+
+tce
+  freeze core
+  ccsd
+  dipole
+  polarizability
+end
+
+task tce optimize
+task tce frequencies
+task tce property
