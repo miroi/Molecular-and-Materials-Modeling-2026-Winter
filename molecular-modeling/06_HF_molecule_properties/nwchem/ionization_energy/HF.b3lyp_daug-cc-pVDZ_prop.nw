@@ -2,7 +2,7 @@ echo
 
 start molecule
 
-title "HF | Equilibrium Geometry | B3LYP/daug-cc-pVDZ"
+title "HF properties"
 charge 0
 
 print low
@@ -21,4 +21,11 @@ dft
   mult 1
 end
 
+property
+  dipole
+  response
+end
+
 task dft optimize
+task dft freq
+task dft property
