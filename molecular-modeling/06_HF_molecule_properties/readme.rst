@@ -25,6 +25,14 @@ exp:  -273.30 +/- 0.70 kJ/mol
 PM7:  -259.13887 KJ/MOL
 PM6:  -266.15452 KJ/MOL
 
+B3LYP/daug-cc-pVDZ :
+ Total DFT energy =     -100.463037205312
+ Zero-Point correction to Energy  =    5.800 kcal/mol  (  0.009242 au)
+ Thermal correction to Energy     =    7.280 kcal/mol  (  0.011602 au)
+ Thermal correction to Enthalpy   =    7.872 kcal/mol  (  0.012545 au)
+
+
+
 entropy, S(298.15K)
 ~~~~~~~~~~~~~~~~~~~~
 exp: 173.78 J.K-1.mol-1	
