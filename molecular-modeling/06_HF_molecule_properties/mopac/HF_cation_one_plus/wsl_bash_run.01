@@ -20,7 +20,8 @@ echo
 #input=SF6.PM7geopt
 #input=iron_pentacarbonyl_PM7geopt
 #input=iron_pentacarbonyl_PM7geopt_precise
-input=HF_PM6_freq_polariz.mop
+#input=HF_PM6_freq_polariz.mop
+input=HF+_PM6_UHF
 
 mopac $input
 #command time -f "%e" mopac $input
