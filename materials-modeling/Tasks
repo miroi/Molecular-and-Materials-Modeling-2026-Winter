@@ -70,7 +70,7 @@ TASK 5: Electronic properties: Al (Charge and DOS, ASE)
 
 For this task, we will perform a quick electronic properties calculation of aluminum (Al), a metal with a cubic Fm̅3m crystal structure. Instead of following the full production workflow — which would involve obtaining an experimental structure from a database like the ICSD or CCDC, performing convergence tests, and conducting cell relaxation — we will, for simplicity, use a standard structure from the Materials Project and run single-shot density of states (DOS) and band structure calculations. First symmetrize the Al structure using the SeekPath tool.
 
-Step 6.1:
+Step 5.1:
 Copy the TASK 4: Electronic properties: A script into your working directory. In the "Electronic properties: A" script, update the necessary parameters—including the pseudopotential, prefix, nat fields, and atoms object to match your Al system.
 Run the calculation
 python3 electronic_properties_al.py > electronic_properties_al.out
@@ -82,16 +82,16 @@ TASK 6: Surfaces and 2D materials (ASE)
 
 This task focuses on analyzing the electronic properties of surfaces and 2D materials, using graphene as an example. Begin by inspecting the graphite structure, select two atoms with identical z-coordinates, and then manually increase the c lattice parameter to a large arbitrary value (e.g., 15 Å) while adjusting the z-coordinates of the selected two atoms to half that value (e.g., 7.5 Å) to create a well-separated, single-layer graphene structure. After visualizing this new structure, copy the TASK 2 convergence test script and edit it: (1) update it with the graphene structure and carbon pseudopotential (2) 2D material specific changes: 'assume_isolated': '2D' (3) change the k-points grid from cubic to a 2D grid divisible by three (e.g., 3k, 3k, 1) to ensure proper sampling of the Dirac point at (1/3, 1/3, 0). For a 2D material, electronic dispersion is flat in the z-direction, so only one k-point is needed to sample it accurately. 
 
-Step 7.1: 
+Step 6.1: 
 Run the convergence test
 python3 convergence_test_graphene.py > convergence_test_graphene.out
 
-Step 7.2
+Step 6.2
 Copy the TASK 3: Cell relaxation script to the working directory and update it for graphene by moving from a full, unconstrained relaxation to a constrained one. This means using a mask in the UnitCellFilter—a boolean list [xx, yy, zz, yz, xz, xy]—to only relax the in-plane lattice vectors (xx, yy) while keeping the out-of-plane vector (zz) and all cell angles (yz, xz, xy) fixed. This is the equivalent of setting up a constrained relaxation with QE's in-built cell_dofree tag (xy or 2Dxy).
 Then run the relaxation:
 python3 cell_relaxation_graphene.py > cell_relaxation_graphene.out
 
-Step 7.3 
+Step 6.3 
 Copy the TASK 4: Electronic properties: Si  script, and update it with the relaxed graphene structure and all other relevant parameters. Then run the calculation:
 python3 electronic_properties_graphene.py > electronic_properties_graphene.out
 
@@ -101,7 +101,7 @@ TASK 7: Work function (ASE)
 
 The work function is defined as the minimum energy required to extract an electron from a solid to a point immediately outside its surface. It is not a bulk material property but rather a surface-specific characteristic that we will calculate for our graphene slab example. the work flow consists of first performing an SCF calculation, then using pp.x to extract the electrostatic potential (plot number 11), followed by planar and macroscopic averaging along the vacuum direction with average.x, from which the finally the work function can be estimated. As usual, we will use ASE to automate the execution sequence.
 
-Step 8.1:
+Step 7.1:
 python3 work_function.py > work_function.out
 (update the Quantum ESPRESSO executable path to your local pw.x location.)
 
