@@ -15,3 +15,4 @@ Experimental water geometry (Google AI) :
  bond length: 0.9578 Ang
 
 
+Challenge:  adapte the code for relaxation of CH4 and H2O molecules, compare computed data with experiments.

@@ -10,6 +10,13 @@ often using methods like DFT (e.g., B3LYP) or CCSD(T) with basis sets like cc-pV
 The C-C equilibrium bond length is 1.53-1.54 A.
 
 
+Avogadro try
+------------
 
+kcal/mol ??
+          Ethane    CH3.
+MMFF94    -19.8086  none
+
+UFF        0.811     0   
 
 

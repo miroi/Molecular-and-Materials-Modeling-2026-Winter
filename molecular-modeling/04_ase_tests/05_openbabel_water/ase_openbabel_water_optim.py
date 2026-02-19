@@ -22,7 +22,7 @@ def print_water_geometry(mol,title):
     print(title)
     print(f"O-H1: {ase_mol.get_distance(0, 1):.4f}")
     print(f"O-H2: {ase_mol.get_distance(0, 2):.4f}")
-    print(f"H-O-H Angle (deg): {ase_mol.get_angle(1, 0, 2):.2f}")
+    print(f"H-O-H Angle (deg): {ase_mol.get_angle(1, 0, 2):.3f}")
 
 # List available force fields
 print("\nList of openbabel FFs :",pybel.forcefields,"\n")
@@ -72,13 +72,14 @@ if success:
 #mol = pybel.readstring("smi", "C1=NC2=C(N1)C(=NC=N2)N") # Adenine
 #mol.draw(show=True, filename=None)
 
-# Convert
+# Convert, and write as ase geometry
 ase_mol = pybel_to_ase(mol)
 write("water_optgem_ase.xyz",ase_mol)
 
 # This opens a separate GUI window (ase-gui)
 #view(ase_mol)
 
+mol.title = "FF optimized H2O"
 mol.write("xyz", "water_optgem.xyz", overwrite=True)
 
 # 4. Print optimized geometry

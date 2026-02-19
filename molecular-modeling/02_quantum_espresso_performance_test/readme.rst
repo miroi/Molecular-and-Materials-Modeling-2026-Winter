@@ -18,7 +18,7 @@ sudo apt install ./quantum-espresso_7.5-1_amd64.deb
 
 export PATH=/opt/espresso/7.5:$PATH
 
-check ldd /opt/espresso/7.5/pw.x
+check: ldd /opt/espresso/7.5/pw.x
 
 which pw.x
 /opt/espresso/7.5/pw.x
