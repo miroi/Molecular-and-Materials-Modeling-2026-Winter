@@ -8,7 +8,7 @@ charge 0
 print low
 
 geometry units angstroms print xyz 
-SYMMETRY c1
+SYMMETRY c2v
 F      0.0  0.0   0.0                       
 H      0.0  0.0   0.921
 end
@@ -25,9 +25,12 @@ tce
   freeze core
   ccsd
   dipole
-  polarizability
 end
 
+set tce:lineresp T
+set tce:afreq 0.0 
+set tce:respaxis T F T
+
+task tce energy
 task tce optimize
 task tce frequencies
-task tce property
