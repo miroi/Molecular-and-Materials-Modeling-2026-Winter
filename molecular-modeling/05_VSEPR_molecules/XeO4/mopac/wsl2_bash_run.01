@@ -1,8 +1,9 @@
 #!/bin/bash
 
 
-#export MOPACDIR=/home/milias/work/software/mopac/mopac-23.1.2-linux
-export MOPACDIR=/home/milias/work/software/mopac/mopac-23.2.3-linux
+#export MOPACDIR=/home/milias/work/software/mopac/mopac-23.2.3-linux
+# miroi@MIRO
+export MOPACDIR=/home/miroi/work/software/mopac/mopac-23.1.2-linux
 
 export PATH=$MOPACDIR/bin:$PATH
 export LD_LIBRARY_PATH=$MOPACDIR/lib:$LD_LIBRARY_PATH
