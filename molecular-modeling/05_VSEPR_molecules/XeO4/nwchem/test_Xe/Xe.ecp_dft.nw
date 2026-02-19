@@ -1,6 +1,6 @@
 title "Xe atom ECP calculation"
 
-print none 
+print medium
 
 geometry
   Xe 0.0 0.0 0.0

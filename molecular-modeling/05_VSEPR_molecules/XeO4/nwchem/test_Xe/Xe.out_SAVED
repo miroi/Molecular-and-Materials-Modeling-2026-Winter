@@ -38,7 +38,7 @@
 
     hostname        = MIRO
     program         = nwchem
-    date            = Thu Feb 19 07:26:40 2026
+    date            = Thu Feb 19 07:29:19 2026
 
     compiled        = Mon_Apr_01_11:12:32_2024
     source          = /build/nwchem-qbYJLs/nwchem-7.2.2/build-openmpi
@@ -49,7 +49,7 @@
     input           = Xe.ecp_dft.nw
     prefix          = Xe.ecp_dft.
     data base       = ./Xe.ecp_dft.db
-    status          = startup
+    status          = restart
     nproc           =        4
     time left       =     -1s
 
@@ -58,10 +58,10 @@
            Memory information
            ------------------
 
-    heap     =   26214396 doubles =    200.0 Mbytes
-    stack    =   26214401 doubles =    200.0 Mbytes
+    heap     =   26214394 doubles =    200.0 Mbytes
+    stack    =   26214399 doubles =    200.0 Mbytes
     global   =   52428800 doubles =    400.0 Mbytes (distinct from heap & stack)
-    total    =  104857597 doubles =    800.0 Mbytes
+    total    =  104857593 doubles =    800.0 Mbytes
     verify   = yes
     hardfail = no 
 
@@ -71,6 +71,38 @@
 
   0 permanent = .
   0 scratch   = .
+
+
+           Previous task information
+           -------------------------
+
+    Theory    = dft                             
+    Operation = energy                        
+    Status    = ok                            
+    Qmmm      = F
+    Ignore    = F
+
+
+           Geometries in the database
+           --------------------------
+
+       Name                              Natoms  Last Modified
+       --------------------------------  ------  ------------------------
+    1  geometry                               1  Thu Feb 19 07:28:41 2026  
+
+  The geometry named "geometry" is the default for restart
+
+
+
+           Basis sets in the database
+           --------------------------
+
+       Name                              Natoms  Last Modified
+        --------------------------------  ------  ------------------------
+    1  ao basis                               1  Thu Feb 19 07:28:41 2026  
+    2  ecp basis                              1  Thu Feb 19 07:28:41 2026  
+
+  The basis set named "ao basis" is the default AO basis for restart
 
 
 
@@ -218,7 +250,54 @@
   4 U-d       Both         2.00        5.253389       0.288227
   4 U-d       Both         2.00        5.361188       0.386924
 
-  WARNING: movecs_in_org=atomic not equal to movecs_in=./Xe.ecp_dft.movecs
+
+                                 NWChem DFT Module
+                                 -----------------
+
+
+                              Xe atom ECP calculation
+
+
+
+
+ Summary of "ao basis" -> "ao basis" (cartesian)
+ ------------------------------------------------------------------------------
+       Tag                 Description            Shells   Functions and Types
+ ---------------- ------------------------------  ------  ---------------------
+ Xe                         def2-svp                16       59   6s5p3d2f
+
+
+
+  The DFT is already converged 
+
+         Total DFT energy =   -328.919117402083
+
+
+ Task  times  cpu:        0.0s     wall:        0.0s
+
+
+                                NWChem Input Module
+                                -------------------
+
+
+ Summary of allocated global arrays
+-----------------------------------
+  No active global arrays
+
+
+MA_summarize_allocated_blocks: starting scan ...
+MA_summarize_allocated_blocks: scan completed: 0 heap blocks, 0 stack blocks
+MA usage statistics:
+
+	allocation statistics:
+					      heap	     stack
+					      ----	     -----
+	current number of blocks	         0	         0
+	maximum number of blocks	        13	         5
+	current total bytes		         0	         0
+	maximum total bytes		     80152	       664
+	maximum total K-bytes		        81	         1
+	maximum total M-bytes		         1	         1
 
 
                                      CITATION
@@ -274,4 +353,4 @@
    K. Glaesemann, G. Sandrone, M. Stave, H. Taylor, G. Thomas, J. H. van Lenthe,
                                A. T. Wong, Z. Zhang.
 
- Total times  cpu:        2.6s     wall:        2.0s
+ Total times  cpu:        0.0s     wall:        0.0s
