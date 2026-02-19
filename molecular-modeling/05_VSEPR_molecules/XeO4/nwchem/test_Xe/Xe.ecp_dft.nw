@@ -14,5 +14,10 @@ ecp "ecp basis"
   Xe library def2-ecp # ECP for core electrons
 end
 
+dft
+  xc b3lyp
+  mult 1
+end
+
 task dft energy
 

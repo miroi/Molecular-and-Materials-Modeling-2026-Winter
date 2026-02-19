@@ -4,7 +4,7 @@ start molecule
 
 title "XeO4 B3LYP geometry optimiz"
 
-print none
+print high
 
 charge 0
 
@@ -16,13 +16,13 @@ O     -3.509942    0.077841    1.917594
 O     -0.459436    1.378927   -0.049210
 end
 
-basis
-  O library def2-TZVP
-  Xe library def2-TZVP
+basis "ao basis"
+   Xe library def2-svp # Basis set for valence electrons
+   O library sto-3g
 end
 
 ecp "ecp basis"
-  Xe library def2-ecp
+  Xe library crenbl_ecp
 end
 
 
