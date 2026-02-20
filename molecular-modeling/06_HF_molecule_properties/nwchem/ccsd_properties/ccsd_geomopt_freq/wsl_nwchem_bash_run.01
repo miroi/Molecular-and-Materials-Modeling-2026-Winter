@@ -42,8 +42,8 @@ else
      NTHREADS=2
 fi
 
-#export OMP_NUM_THREADS=2
-#echo -e "\n For OpenMP threading, OMP_NUM_THREADS=$OMP_NUM_THREADS"
+export OMP_NUM_THREADS=2
+echo -e "\n For OpenMP threading, OMP_NUM_THREADS=$OMP_NUM_THREADS"
 
 #export NWCHEM_EXECUTABLE=/home/milias/work/qch_software/nwchem/bin/LINUX64/nwchem
 export NWCHEM_EXECUTABLE=/usr/bin/nwchem
@@ -86,8 +86,8 @@ du -h -s $TMPDIR
 cd .. ; echo -e "just for control -  pwd=\c";pwd; ls -lt
 
 # retreive xyz files
-echo -e "\n Copying xyz files from scratch to home directory."
-cp *.xyz $THISDIR/.
+echo -e "\n Copying xyz geometry files from scratch to home directory."
+cp HFccsd_geom*.xyz $THISDIR/.
 
 echo -e "\nDeleting scratch directory $TMPDIR: "; /bin/rm -r $TMPDIR
 
