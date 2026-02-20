@@ -13,7 +13,7 @@ string=`cat /proc/cpuinfo | grep 'cpu cores'`
 number_string=$(echo "$string" | grep -o -E '[0-9]+(\.[0-9]+)?')
 #echo $number_string
 MAXTHREADS=$(echo "$number_string" | grep -oE '[0-9]+' | sort | uniq -c | awk '$1 > 1 {print $2}')
-echo -e "Number of cores, or max number of mpi threads MAXTHREADS=$MAXTHREADS"
+echo -e "Number of cores, or max number of mpi processes  MAXTHREADS=$MAXTHREADS"
 
 
 # process command line arguments
@@ -41,6 +41,9 @@ else
  echo "no command line arguments, taking  default NTHREADS=2"
      NTHREADS=2
 fi
+
+export OMP_NUM_THREADS=2
+echo -e "\n For OpenMP threading, OMP_NUM_THREADS=$OMP_NUM_THREADS"
 
 #export NWCHEM_EXECUTABLE=/home/milias/work/qch_software/nwchem/bin/LINUX64/nwchem
 export NWCHEM_EXECUTABLE=/usr/bin/nwchem
