@@ -42,8 +42,8 @@ else
      NTHREADS=2
 fi
 
-export OMP_NUM_THREADS=2
-echo -e "\n For OpenMP threading, OMP_NUM_THREADS=$OMP_NUM_THREADS"
+#export OMP_NUM_THREADS=2
+#echo -e "\n For OpenMP threading, OMP_NUM_THREADS=$OMP_NUM_THREADS"
 
 #export NWCHEM_EXECUTABLE=/home/milias/work/qch_software/nwchem/bin/LINUX64/nwchem
 export NWCHEM_EXECUTABLE=/usr/bin/nwchem
@@ -77,13 +77,18 @@ echo -e "\n Checking : which mpirun ? \c"; which mpirun; mpirun --version
 #proj=HF.b3lyp_daug-cc-pVDZ
 proj=HF.daug-cc-pVDZ_ccsd_geopt_freq
 
-echo -e "\n Launching NWChem project $proj with $NTHREADS MPI threads :"
-mpirun -np $NTHREADS $NWCHEM_EXECUTABLE  $THISDIR/$proj.nw >  $THISDIR/$proj.outN$NTHREADS
+echo -e "\n Launching NWChem project $proj with $NTHREADS MPI processes :"
+mpirun -np $NTHREADS $NWCHEM_EXECUTABLE  $THISDIR/$proj.nw >  $THISDIR/$proj.outMPI$NTHREADS
 
 echo -e "\n\n Working files in scratch dir $TMPDIR:"
 ls -lt $TMPDIR
 du -h -s $TMPDIR
 cd .. ; echo -e "just for control -  pwd=\c";pwd; ls -lt
+
+# retreive xyz files
+echo -e "\n Copying xyz files from scratch to home directory."
+cp *.xyz $THISDIR/.
+
 echo -e "\nDeleting scratch directory $TMPDIR: "; /bin/rm -r $TMPDIR
 
 echo -e "\n returning to $THISDIR"

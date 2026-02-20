@@ -26,5 +26,11 @@ ccsd
   freeze core
 end
 
+driver
+  xyz HFccsd_geom
+end
+
+set ccsd:use_ccsd_omp T
+
 task ccsd optimize
 task ccsd frequencies
