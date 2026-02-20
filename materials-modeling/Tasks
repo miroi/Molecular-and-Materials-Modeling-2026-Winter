@@ -39,7 +39,7 @@ TASK 3: Cell relaxation (QE and ASE)
 In this task, we will relax the silicon experimental unit cell to determine its ground state structure, allowing both lattice parameters and atomic positions to adjust freely. Given that we're starting from a well-defined experimental structure, only minor changes are expected during the relaxation process. We will perform this using two distinct methods: direct relaxation through QE and by ASE using QE as calculator.
 
 Step 3.1: Direct QE
-/path/to/qe/bin/qe-7.4.1/bin/pw.x < cell_relaxation_si.in > cell_relaxation_si.out
+/path/to/qe/bin/qe-7.4.1/bin/pw.x < cell_relaxation_si.in > cell_relaxation_si_direct.out
 
 Step 3.2: ASE
 ASE: python3 cell_relaxation_si.py > cell_relaxation_si.out (Replace the QE executable path with your local pw.x location in the script)
