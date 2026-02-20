@@ -20,7 +20,7 @@ pseudopotentials = {'C': 'C.upf'}
 input_data = {
     'control': {
         'calculation': 'scf',
-        'prefix': 'si',
+        'prefix': 'graphene',
         'outdir': './tmp',
         'verbosity': 'low',
         'tstress': True,
