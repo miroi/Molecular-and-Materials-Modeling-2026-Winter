@@ -36,7 +36,7 @@ base_input_data = {
         'ibrav': 0,
         'nat': 2,
         'ntyp': 1,
-        'assume_isolated': '2D'
+ #      'assume_isolated': '2D'
     },
     'electrons': {
         'conv_thr': 1.0e-10

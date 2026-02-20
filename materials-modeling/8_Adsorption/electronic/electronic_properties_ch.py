@@ -39,7 +39,9 @@ base_input_data = {
         'ntyp': 2,
         'vdw_corr': 'DFT-D3',
         'dftd3_version': 4,
-        'nspin': 2
+        'nspin': 2,
+        'nosym': True,
+        'noinv': True,
     },
     'electrons': {
         'conv_thr': 1.0e-10
