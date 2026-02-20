@@ -26,7 +26,5 @@ ccsd
   freeze core
 end
 
-# Define the main task: perform a geometry optimization using the CCSD level of theory
-# The 'optimize' task uses the 'driver' module by default
 task ccsd optimize
 task ccsd frequencies

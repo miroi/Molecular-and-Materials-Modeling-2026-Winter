@@ -72,7 +72,7 @@ echo -e "\n Checking : which mpirun ? \c"; which mpirun; mpirun --version
 #proj=ch3_zora_b3lyp_prop
 #proj=b3lyp_singlepoint
 #proj=HF.b3lyp_daug-cc-pVDZ
-proj=HF.daug-cc-pVDZ_ccsd_geopt
+proj=HF.daug-cc-pVDZ_ccsd_geopt_freq
 
 echo -e "\n Launching NWChem project $proj with $NTHREADS MPI threads :"
 mpirun -np $NTHREADS $NWCHEM_EXECUTABLE  $THISDIR/$proj.nw >  $THISDIR/$proj.outN$NTHREADS
