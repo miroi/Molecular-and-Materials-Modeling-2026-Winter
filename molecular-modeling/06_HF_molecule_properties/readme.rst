@@ -2,6 +2,16 @@
 Properties of HF molecule
 =========================
 
+Compute selected properties of HF molecule. These are:
+geometry, vibrational frequency, thermodynamic properties (enthalpy, entrophy),
+electric properties (dipoment moment, static dipole polarizability).
+
+Employ methods in MOPAC (PM7, PM6) and in NWChem (DFT, CCSD) programs.
+For NWChem, use different DFT functionals and basis sets (CCSD).
+
+Put obtained results also into one big spreadsheet Table.
+
+
 r(HF)
 ~~~~~~
 re(exp) = 0.917	Ang (https://cccbdb.nist.gov/)
