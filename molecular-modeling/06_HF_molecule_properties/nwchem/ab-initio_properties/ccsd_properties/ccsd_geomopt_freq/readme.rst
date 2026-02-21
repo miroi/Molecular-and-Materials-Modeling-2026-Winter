@@ -2,7 +2,9 @@
 HF molecule with CCSD 
 =====================
 
-Geometry optimization, frequency calculations
+Geometry optimization with frequencies calculations.
+
+
 
 
 
