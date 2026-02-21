@@ -2,15 +2,7 @@
 ASE simple runs
 ===============
 
-collection of simple ASE runs
+Small collection of simple ASE demonstration programs.
 
-
-01) Atomization energies of diatomic molecules
-
-
-02)
-
-
-03)
-
+Look into each subfolder, where you will find readme.rst file with challenges.
 

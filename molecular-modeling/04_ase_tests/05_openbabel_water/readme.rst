@@ -1,7 +1,8 @@
+===================
 ASE driven OpenBabel 
 ====================
 
-ase driven OpenBabel optimization of water molecule
+ASE driven OpenBabel optimization of water molecule.
 
 install & run
 -------------
