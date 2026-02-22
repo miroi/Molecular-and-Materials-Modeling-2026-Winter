@@ -1,0 +1,8 @@
+# path to your QE binaries
+qe_path='/opt/espresso/7.5'
+
+# for OpenMP parallelization
+export OMP_NUM_THREADS=1
+
+# for parallel run
+mpirun -np 2
