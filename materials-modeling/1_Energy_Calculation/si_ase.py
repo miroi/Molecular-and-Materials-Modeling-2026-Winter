@@ -60,7 +60,8 @@ qe_bin = config.qe_path
 #pw_command = f'{qe_bin}/bin/pw.x'
 #pw_command = f'mpirun -np 4 {qe_bin}/bin/pw.x'
 print("config.py : mpi_command=",config.mpi_command)
-pw_command = f'{config.mpi_command}'
+pw_command = f'{config.mpi_command} {qe_bin}/pw.x'
+print("pw_command=",pw_command)
 
 # set up OpenMP
 print("config.py : omp_threads=",config.omp_threads)
