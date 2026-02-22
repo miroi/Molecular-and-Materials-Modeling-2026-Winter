@@ -1,0 +1,3 @@
+/opt/espresso/7.5
+OMP_NUM_THREADS=1
+mpirun -np 2
