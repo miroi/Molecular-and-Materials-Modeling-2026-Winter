@@ -25,4 +25,4 @@ Inspect ASE generated QE input files and repeat all the previous steps.
 
 Challenge
 ---------
-...
+Modify the ecutwfc to see, how it changes the total energy.
