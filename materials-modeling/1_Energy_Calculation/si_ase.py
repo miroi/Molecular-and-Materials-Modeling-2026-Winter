@@ -3,6 +3,8 @@ from ase import Atoms
 from ase.calculators.espresso import Espresso, EspressoProfile
 import os
 
+import config
+
 # ==============================================
 # 1. Quantum Espresso input parameters
 # ==============================================
@@ -11,6 +13,7 @@ pseudopotentials = {'Si': 'Si.upf'}
 input_data = {
     'control': {
         'calculation': 'scf',
+        'pseudo_dir' : '.././'
     },
     'system': {
         'ibrav': 0,
@@ -47,13 +50,22 @@ atoms = Atoms(
 # ==============================================
 # 3. Calculator configuration
 # ==============================================
+print("config.py : qe_path=",config.qe_path)
 # Set QE bin directory 
 #qe_bin = "/home/dsen/work/bin/qe-7.4.1_serial"
-qe_bin = "/home/dsen/work/bin/qe-7.4.1"
+#qe_bin = "/home/dsen/work/bin/qe-7.4.1"
+qe_bin = config.qe_path
 
 # Parallel calculation 
 #pw_command = f'{qe_bin}/bin/pw.x'
-pw_command = f'mpirun -np 4 {qe_bin}/bin/pw.x'
+#pw_command = f'mpirun -np 4 {qe_bin}/bin/pw.x'
+print("config.py : mpi_command=",config.mpi_command)
+pw_command = f'{config.mpi_command}'
+
+# set up OpenMP
+print("config.py : omp_threads=",config.omp_threads)
+os.environ['OMP_NUM_THREADS'] = config.omp_threads
+
 
 pw_profile = EspressoProfile(
     command=pw_command,
