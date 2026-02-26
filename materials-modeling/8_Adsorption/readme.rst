@@ -4,17 +4,20 @@ Adsorption on the surface
 
 Adsorption of H atom on a piece of graphene (C8).
 
+Initial structures are read from vasp geometry files. 
+The H atom is placed into a middle of  cubic box.
+
 step 1
 ~~~~~~
- relaxation.py - optimizes the H@C8 geometry
+relaxation.py - optimizes the H@C8 geometry
 
 step 2
 ~~~~~~
- energy_h.py -  computes the energy of H atom
+energy_h.py - computes the energy of H atom
 
 step 3 
 ~~~~~~
- energy_c.py  - computes the energy of C8 surface
+energy_c.py - computes the energy of C8 surface
 
 Adsorption energy = E(C8) + E(H) - E(H@C8) =  -1303.645828 -12.559508 -( -1319.069236) eV
 Adsorption energy = 2.8639 eV 
