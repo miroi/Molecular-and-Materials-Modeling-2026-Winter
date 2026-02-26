@@ -24,4 +24,6 @@ Binding Energy: Typically 0.67–1.0 eV, with some studies reporting up to ~1.9 
 
 Challenge
 ---------
-Modify Python script to perform the relaxation of the C8 surface and calculate new adsorption energy.
+Modify Python script to perform the relaxation of the C8 slab and calculate new adsorption energy.
+
+Increase the ecutwfc parameter to see if this improves the binding energy of H on C8.
