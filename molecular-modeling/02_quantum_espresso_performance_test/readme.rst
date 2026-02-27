@@ -52,8 +52,6 @@ performance test
 ----------------
 We have simple example of 2 molecules, adapted for QE package default pseudos
 
-export OMP_NUM_THREADS=1
-
 12th Gen Intel(R) Core(TM) i7-12700K
 PWSCF v.6.7MaX (Ubuntu 22.04)
 
@@ -66,10 +64,12 @@ Nproc   WALL time
 12th Gen Intel(R) Core(TM) i5-12450H
 PWSCF v.7.5 (Ubuntu 24.04)
 
+export OMP_NUM_THREADS=1
+
 Nproc   Wall 
 1      1m 9.57s
 2      35.68s
-6      3m34.84s      
+6      18.18s
 
 challenge
 ~~~~~~~~~
