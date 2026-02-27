@@ -2,7 +2,7 @@
 TASK 2: Automated Cutoff and K-points Convergence Test (ASE)
 ============================================================
 
-In convergence testing, we systematically increase two key parameters separately (not simultaneously): 
+In convergence testing, we systematically increase these two key parameters separately (not simultaneously): 
 
 (1) Plane-wave cutoff energy (ecutwfc) 
 (2) K-points grid density (K_POINTS).
@@ -11,9 +11,10 @@ The goal is to find the point where the total energy stabilizes (saturates) with
 
 It can be done manually by running multiple SCF calculations (as in TASK 1) and comparing energies at each step.
 
-However the current task uses a ASE python script (convergence_test_si.py) to automate the process.
+However, the current task uses a ASE python script (convergence_test_si.py) to automate the process.
 
-All necessary parameters are already pre-configured in the script, including: (1) QE SCF input parameters (2) Atomic structure of silicon (3) Convergence test logic. 
+All necessary parameters are already pre-configured in the script, including:
+(1) QE SCF input parameters (2) Atomic structure of silicon (3) Convergence test logic. 
 
 Only one modification is required: Replace the QE executable path with your local pw.x location in the script.
 
@@ -43,6 +44,6 @@ TASK 2.3
 Within Cell relaxation (QE and ASE), shift the atoms manually and run the convergence again
 
 
-Challenge
+TASK 2.4
 ---------
  Find different pseudopotentials from http://pseudopotentials.quantum-espresso.org/legacy_tables or other resources. Update the convergence Test (ASE) python code, and run the convergence test for each. Make a table of energy and k point cut offs of various pseudopotentials using Si as an example.
