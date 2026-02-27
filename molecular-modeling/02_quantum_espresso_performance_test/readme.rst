@@ -68,5 +68,5 @@ challenge
 ~~~~~~~~~
 Ask Google AI on your specific CPU xxx: "how many OpenMP threads and how many OpenMPI processes for xxx"
 
-Increase the cutoffs and run more performance tests 
+Increase the cutoffs and run more performance tests with modification of both OpenMPI and OpenMP parameters.
 
