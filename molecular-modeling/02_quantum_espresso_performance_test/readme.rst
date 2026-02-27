@@ -50,16 +50,9 @@ displays input, output files
 
 performance test
 ----------------
-We have simple example of 2 molecules, adapted for QE package default pseudos
+We have simple example of 2 molecules, QE inputs is adapted for package's default pseudos.
 
-12th Gen Intel(R) Core(TM) i7-12700K
-PWSCF v.6.7MaX (Ubuntu 22.04)
-
-Nproc   WALL time
-2       31.21s
-4       16.25s    
-8        9.30s
-
+Consider both OpenMPI processes and OpenMP threads.
 
 12th Gen Intel(R) Core(TM) i5-12450H
 PWSCF v.7.5 (Ubuntu 24.04)
@@ -73,5 +66,7 @@ Nproc   Wall
 
 challenge
 ~~~~~~~~~
-increase the cutoffs and run performance tests 
+Ask Google AI on your specific CPU xxx: "how many OpenMP threads and how many OpenMPI processes for xxx"
+
+Increase the cutoffs and run more performance tests 
 
