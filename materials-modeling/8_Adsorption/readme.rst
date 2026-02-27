@@ -19,14 +19,18 @@ step 3
 ~~~~~~
 energy_c.py - computes the energy of C8 surface
 
-Adsorption energy = E(C8) + E(H) - E(H@C8) =  -1303.645828 -12.559508 -( -1319.069236) eV
-Adsorption energy = 2.8639 eV 
+Binding energy = E(C8) + E(H) - E(H@C8) =  -1303.645828 -12.559508 -( -1319.069236) eV
+Binding energy = 2.8639 eV 
 
-Google AI: The adsorption energy of a single Hydrogen (H) atom on pristine graphene is approximately 0.67 to 1.0 eV (chemisorption).
+Google AI: 
+The binding energy of a single Hydrogen (H) atom on pristine graphene is approximately 0.67 to 1.0 eV (chemisorption).
 Binding Energy: Typically 0.67–1.0 eV, with some studies reporting up to ~1.9 eV.
 
 Challenge
 ---------
-Modify Python script to perform the relaxation of the C8 slab and calculate new adsorption energy.
+Modify the Python script to perform the relaxation of the C8 slab and calculate the new adsorption energy.
 
-Increase the ecutwfc parameter to see if this improves the binding energy of H on C8.
+Likewise, increase the ecutwfc parameter to see if this improves the binding energy of H on C8.
+
+Note: if you would enlarge the slab (increasing number of graphene C atoms), 
+it would become computationally very demanding.
