@@ -42,12 +42,16 @@ else
      NTHREADS=2
 fi
 
+# Modify the position of QE executable
 #export QE_EXECUTABLE=/usr/bin/pw.x
 export QE_EXECUTABLE=/opt/espresso/7.5/pw.x
+
+
 echo -e "\n  QE_EXECUTABLE=$QE_EXECUTABLE ; linked libraries: "
 ldd $QE_EXECUTABLE
 
 # pseudo directory of the quantum-espresso package installation
+# modify is necessary 
 export ESPRESSO_PSEUDO=/usr/share/espresso/pseudo
 echo -e "\n QE pseudopot. files, ESPRESSO_PSEUDO=$ESPRESSO_PSEUDO"
 
